@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>总金额：{{getPrice}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            books: [
+                {id: 100, name: '深入理解Java虚拟机' , price: 110},
+                {id: 101, name: '深入理解Java' , price: 100},
+                {id: 102, name: '深入理解虚拟机' , price: 100},
+                {id: 103, name: 'Java虚拟机' , price: 100},
+            ]
+        },
+        computed: {
+            getPrice: function () {
+                let result = 0;
+                for (let i = 0; i < this.books.length; i++){
+                    result += this.books[i].price;
+                }
+                return result;
+            }
+        }
+    })
+</script>
+</body>
+</html>

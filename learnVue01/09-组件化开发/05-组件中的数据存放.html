@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>{{message}}</h2>
+    <h2>标题2</h2>
+    <p>2222</p>
+    <p>33333</p>
+  </div>
+</template>
+
+
+<script src="../js/vue.js"></script>
+
+<script>
+
+  Vue.component('cpn', {
+    template: `#cpn`,
+    //data返回一个函数的原因：　当有多个组件的时候，每个组件在注册时都会调用data函数，每次调用会返回一个新的对象，可以避免组件之间的干扰
+    //而作为一个对象的话，相当于多个组件都指向一个对象，会出现组件之间干扰的问题
+    data() {
+      return {
+        message: '组件',
+      }
+    }
+  });
+
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+    },
+    methods: {
+
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2 :style="{fontSize: fSize + 'px', backgroundColor: bgColor}">{{message}}</h2>
+    <h2 :style="[style1,style2]">{{message}}</h2>
+    <img :src="img">
+    <a :href="aHref">百度一下</a>
+    <a v-bind:href="aHref">百度一下</a>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            img: 'https://www.baidu.com/img/bd_logo1.png?where=super',
+            aHref: 'https://www.baidu.com/',
+            fSize: 50,
+            bgColor: 'red',
+            style1: {fontSize: '50px'},
+            style2: {backgroundColor: 'red'},
+        },
+        methods: {
+
+        }
+    })
+</script>
+</body>
+</html>

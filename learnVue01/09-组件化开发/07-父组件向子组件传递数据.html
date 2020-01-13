@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
+  </div>
+  <script src="../js/vue.js"></script>
+
+
+  
+<!--  父传子： props-->
+
+  <template id="cpn">
+<!--    vue模板只能有一个root根对象，所以需要用div标签来包裹全部元素-->
+    <div>
+      <h2>ppp</h2>
+      <p>{{cmovies}}</p>
+      <p>{{cmessage}}</p>
+    </div>
+
+  </template>
+
+
+  <script>
+
+    //创建组件构造器对象
+    const cpn = {
+      template: '#cpn',
+      // props: ['cmovies', 'cmessage'],
+      //当类型是数组或者对象时，默认值必须传一个函数，内部return一个对象，默认值只有不传这个参数的时候才会显示
+      props: {
+        cmovies: {
+          type: Array,
+          default() {
+            return ['sss']
+          }
+        },
+        cmessage: {
+          type: String,
+          default: 'aaaaaaaaaaaa啊啊',
+          // default() {
+          //   return {
+          //     message: 'aaaaa啊啊啊'
+          //   }
+          }
+        }
+      }
+
+
+
+    //根组件
+    const app = new Vue({
+      el: '#app',
+      data: {
+        movies: ['海王', '双子星', '经营律师'],
+        message: '组件通信'
+      },
+      //子组件注册
+      components: {
+        cpn,
+      }
+    })
+  </script>
+</body>
+</html>

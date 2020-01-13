@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="">
+    <ul>
+        <li v-for="(m, index) in movies" :class="{red:currentIndex === index}" @click="change(index)">{{index}}-{{m}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+        const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['海王', '亚瑟', '甄姬', '貂蝉'],
+            currentIndex: 0,
+            isShow: false,
+        },
+        methods: {
+            change(index) {
+                this.currentIndex = index;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

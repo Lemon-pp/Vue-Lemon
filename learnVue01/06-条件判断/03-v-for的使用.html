@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(value, name, index ) in info">{{index}}-{{name}}:{{value}}</li>
+    </ul>
+
+    <ul>
+        <ol v-for="(name, index) in names" >{{index}}-{{name}}</ol>
+    </ul>
+    <button @click="change()">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            info: {
+                name: 'kou',
+                age: '18',
+                height: '177',
+            },
+            names: ['bob', '张三', 'lisi', 'wangwu', 'aaa'],
+        },
+        methods: {
+            change(){
+                //push:在最后位置添加元素
+                // this.names.push('aaa');
+
+                //从最后位置开始删除元素
+                // this.names.pop();
+
+                //shift：从第一个位置删除元素
+                // this.names.shift();
+
+                //unshift: 从第一个位置添加元素,可以传多个参数
+                // this.names.unshift('aaaa', 'bbb', 'ccc');
+
+                //splice: 1.删除元素 2.添加元素 3.替换元素 （参数：1.开始位置 2.要操作的位置 3.需要操作的元素）
+                // this.names.splice(1, this.names.length-1);
+                // this.names.splice(1, 0, 'sss', 'bbb');
+                // this.names.splice(1, 1, 'sss');
+
+                //sort: 排序
+                //this.names.sort();
+
+                //reverse: 反转
+                this.names.reverse();
+
+                //修改元素,1.通过数组下标修改vue不会重新渲染 2.set(要修改的对象，索引值，修改后的值)
+                // this.names[1] = '222';
+                // Vue.set(this.names, 1, '222');
+
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
